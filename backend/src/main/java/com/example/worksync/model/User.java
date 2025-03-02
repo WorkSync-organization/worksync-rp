@@ -2,13 +2,13 @@ package com.example.worksync.model;
 
 import java.util.Collection;
 import java.util.List;
-import java.util.UUID;
 
-import com.example.worksync.model.enums.UserRole;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
+import com.example.worksync.model.enums.UserRole;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -22,9 +22,9 @@ import jakarta.persistence.Table;
 public class User implements UserDetails {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.UUID)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="id", updatable=false)
-    private UUID id;
+    private Long id;
 
     @Column(nullable = false, unique = true)
     private String email;
@@ -49,7 +49,7 @@ public class User implements UserDetails {
         this.name = name;
     }
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
@@ -71,7 +71,7 @@ public class User implements UserDetails {
         return name;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
