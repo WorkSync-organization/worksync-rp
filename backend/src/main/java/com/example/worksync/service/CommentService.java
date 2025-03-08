@@ -9,6 +9,8 @@ import com.example.worksync.repository.TaskRepository;
 import com.example.worksync.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.example.worksync.exceptions.ResourceNotFoundException;
+import com.example.worksync.exceptions.UnauthorizedAccessException;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -60,5 +62,22 @@ public class CommentService {
                 comment.getUser().getId(),
                 comment.getCreatedAt()
         );
+    }
+
+    public void deleteComment(Long commentId, User user) {
+        Optional<Comment> commentOpt = commentRepository.findById(commentId);
+        
+        if (commentOpt.isEmpty()) {
+            throw new ResourceNotFoundException("Comment", commentId);
+        }
+
+        Comment comment = commentOpt.get();
+        
+        
+        if (!comment.getUser().equals(user)) {
+            throw new UnauthorizedAccessException("You are not authorized to delete this comment.");
+        }
+
+        commentRepository.delete(comment);
     }
 }
