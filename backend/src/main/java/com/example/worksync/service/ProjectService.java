@@ -51,6 +51,20 @@ public class ProjectService {
         projectRepository.deleteById(id);
     }
 
+    public ProjectDTO addParticipantToProject(Long projectId, Long userId) {
+        Project project = projectRepository.findById(projectId)
+                .orElseThrow(() -> new RuntimeException("Project not found!"));
+
+        if (!project.getParticipantIds().contains(userId)) {
+            project.getParticipantIds().add(userId);
+            project = projectRepository.save(project);
+        } else {
+            throw new RuntimeException("User is already a participant of this project!");
+        }
+
+        return convertToDTO(project);
+    }
+
     private ProjectDTO convertToDTO(Project project) {
         return new ProjectDTO(
                 project.getId(),

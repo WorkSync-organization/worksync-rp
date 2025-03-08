@@ -43,4 +43,11 @@ public class ProjectController {
         projectService.deleteProject(id);
         return ResponseEntity.noContent().build();
     }
+
+    @PostMapping("/{projectId}/addParticipant/{userId}")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<ProjectDTO> addParticipant(@PathVariable Long projectId, @PathVariable Long userId) {
+        ProjectDTO updatedProject = projectService.addParticipantToProject(projectId, userId);
+        return ResponseEntity.ok(updatedProject);
+    }
 }
