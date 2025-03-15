@@ -79,6 +79,11 @@
             <version>6.2.0.Final</version>
         </dependency>
         
+        <dependency>
+    		<groupId>com.h2database</groupId>
+    		<artifactId>h2</artifactId>
+    		<scope>test</scope>
+		</dependency>
     </dependencies>
     
     <build>
@@ -89,4 +94,19 @@
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+    	<profile>
+        	<id>test</id>
+        	<activation>
+            	<property>
+                	<name>env</name>
+                	<value>test</value>
+            	</property>
+        	</activation>
+        	<properties>
+            	<spring.profiles.active>test</spring.profiles.active>
+        	</properties>
+    	</profile>
+	</profiles>
 </project>
