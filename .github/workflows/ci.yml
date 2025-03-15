@@ -15,28 +15,28 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout do código
+      - name: Checkout the code
         uses: actions/checkout@v4
 
-      - name: Configurar JDK 21
+      - name: Set up JDK 21
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
           java-version: '21'
           cache: maven
 
-      - name: Entrar na pasta backend
+      - name: Enter the backend folder
         run: cd backend
 
-      - name: Compilar e rodar testes com perfil de testes
+      - name: Compile and run tests with the test profile
         run: mvn clean verify -Dspring.profiles.active=test
         working-directory: ./backend
 
-      - name: Empacotar aplicação
+      - name: Package the application
         run: mvn package -DskipTests
         working-directory: ./backend
 
-      - name: Upload do artefato JAR
+      - name: Upload the JAR artifact
         uses: actions/upload-artifact@v4
         with:
           name: worksync-jar
