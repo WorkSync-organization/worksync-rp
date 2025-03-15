@@ -29,8 +29,13 @@ jobs:
         run: cd backend
 
       - name: Compilar e rodar testes com perfil de testes
-        run: mvn clean verify -Dspring.profiles.active=test -X
-        working-directory: backend
+        run: mvn clean verify -Dspring.profiles.active=test
 
-      - name: Verificar relatórios de testes
-        run: cat backend/target/surefire-reports/*.txt
+      - name: Empacotar aplicação
+        run: mvn package -DskipTests
+
+      - name: Upload do artefato JAR
+        uses: actions/upload-artifact@v3
+        with:
+          name: worksync-jar
+          path: backend/target/worksync-0.0.1-SNAPSHOT.jar
