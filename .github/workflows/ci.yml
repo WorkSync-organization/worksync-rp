@@ -30,3 +30,4 @@ jobs:
 
       - name: Compilar e rodar testes com perfil de testes
         run: mvn clean verify -Dspring.profiles.active=test
+        working-directory: backend  # <-- Isso vai definir o diretório de trabalho para a pasta backend
