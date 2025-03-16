@@ -41,3 +41,4 @@ jobs:
         with:
           name: worksync-jar
           path: backend/target/worksync-0.0.1-SNAPSHOT.jar
+          
