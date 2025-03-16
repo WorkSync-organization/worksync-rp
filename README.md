@@ -22,6 +22,12 @@ estudantes até profissionais.
 
 Com uma interface simples e intuitiva, o projeto visa otimizar a produtividade das equipes. O usuário pode visualizar o status de suas tarefas, com informações claras sobre prazos, progresso e pendências, facilitando o acompanhamento e a organização do trabalho em grupo.
 
+### 🌐 Deploy
+
+> [!NOTE] 
+> **Backend**\
+> [https://worksync-rp.onrender.com](https://worksync-rp.onrender.com)
+
 
 ### 📊 Tecnologias
 
