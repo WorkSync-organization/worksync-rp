@@ -3,7 +3,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, lastValueFrom } from 'rxjs';
 import { ErrorMessage } from './types/error';
 import { CommentRequest, CommentResponse } from './types/comment';
-import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',

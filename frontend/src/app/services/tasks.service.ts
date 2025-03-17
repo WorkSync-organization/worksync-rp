@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, lastValueFrom } from 'rxjs';
 import { ErrorMessage } from './types/error';
-import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
