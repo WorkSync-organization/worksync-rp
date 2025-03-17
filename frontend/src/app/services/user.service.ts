@@ -8,7 +8,8 @@ import { environment } from '../../environments/environment';
   providedIn: 'root',
 })
 export class UserService {
-  private apiUrl = `${environment.apiUrl}/users`;
+  // private apiUrl = 'http://localhost:8080/users'; use esta url para testar localmente
+  private apiUrl = 'https://worksync-rp.onrender.com/users';
 
   constructor(private http: HttpClient) {}
 

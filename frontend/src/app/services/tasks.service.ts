@@ -8,7 +8,8 @@ import { environment } from '../../environments/environment';
   providedIn: 'root',
 })
 export class TaskService {
-  private apiUrl = `${environment.apiUrl}/tasks`;
+  // private apiUrl = 'http://localhost:8080/tasks'; use esta url para testar localmente
+  private apiUrl = 'https://worksync-rp.onrender.com/tasks';
 
   constructor(private http: HttpClient) {}
 

@@ -8,7 +8,8 @@ import { environment } from '../../environments/environment';
   providedIn: 'root',
 })
 export class ProjectsService {
-  private apiUrl = `${environment.apiUrl}`;
+  // private apiUrl = 'http://localhost:8080'; use esta url para testar localmente
+  private apiUrl = 'https://worksync-rp.onrender.com';
 
   constructor(private http: HttpClient) {}
   getAllProjects(title?: string): Observable<ProjectDTO[]> {

@@ -10,7 +10,8 @@ import { environment } from '../../../environments/environment';
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = `${environment.apiUrl}/auth`;
+  // private apiUrl = 'http://localhost:8080/auth'; use esta url para testar localmente
+  private apiUrl = 'https://worksync-rp.onrender.com/auth';
 
   constructor(private http: HttpClient) {}
 
