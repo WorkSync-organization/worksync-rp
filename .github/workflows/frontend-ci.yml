@@ -37,5 +37,8 @@ jobs:
         run: npm run build -- --configuration=production
         working-directory: frontend
 
+      - name: Verificar valor do RENDER_DEPLOY_HOOK
+        run: echo "RENDER_DEPLOY_HOOK=${{ secrets.RENDER_DEPLOY_HOOK }}"
+
       - name: Deploy para Render
         run: curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK }}"
