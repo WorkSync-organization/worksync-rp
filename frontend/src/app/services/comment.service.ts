@@ -3,13 +3,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, lastValueFrom } from 'rxjs';
 import { ErrorMessage } from './types/error';
 import { CommentRequest, CommentResponse } from './types/comment';
-import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CommentService {
-  private apiUrl = `${environment.apiUrl}/comments`;
+  // private apiUrl = 'http://localhost:8080/comments'; use esta url para testar localmente
+  private apiUrl = 'https://worksync-rp.onrender.com/comments';
 
   constructor(private http: HttpClient) {}
 

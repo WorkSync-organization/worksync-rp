@@ -29,6 +29,11 @@ jobs:
         run: npm install
         working-directory: frontend
 
+      - name: Debugging RENDER_DEPLOY_HOOK
+        run: echo ${{ secrets.RENDER_DEPLOY_HOOK }}
+
+
       - name: Build do projeto Angular
         run: npm run build -- --configuration=production
         working-directory: frontend
+

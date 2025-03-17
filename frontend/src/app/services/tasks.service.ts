@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, lastValueFrom } from 'rxjs';
 import { ErrorMessage } from './types/error';
-import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TaskService {
-  private apiUrl = `${environment.apiUrl}/tasks`;
+  // private apiUrl = 'http://localhost:8080/tasks'; use esta url para testar localmente
+  private apiUrl = 'https://worksync-rp.onrender.com/tasks';
 
   constructor(private http: HttpClient) {}
 

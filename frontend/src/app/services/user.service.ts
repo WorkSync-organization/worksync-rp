@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { UserDTO, User } from './types/user';
-import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  private apiUrl = `${environment.apiUrl}/users`;
+  // private apiUrl = 'http://localhost:8080/users'; use esta url para testar localmente
+  private apiUrl = 'https://worksync-rp.onrender.com/users';
 
   constructor(private http: HttpClient) {}
 
