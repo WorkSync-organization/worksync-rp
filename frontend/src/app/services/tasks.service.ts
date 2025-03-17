@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, lastValueFrom } from 'rxjs';
 import { ErrorMessage } from './types/error';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TaskService {
-  private apiUrl = 'http://localhost:8080/tasks';
+  private apiUrl = `${environment.apiUrl}/tasks`;
 
   constructor(private http: HttpClient) {}
 
@@ -85,13 +86,13 @@ export class TaskService {
     updatedTask: any
   ): Promise<{ error?: ErrorMessage } | Response> {
     try {
-      console.log('Atualizando tarefa...', updatedTask);  // Log para depuração
+      console.log('Atualizando tarefa...', updatedTask); // Log para depuração
       const response = await lastValueFrom(
         this.http.patch(`${this.apiUrl}/${id}`, updatedTask, {
           headers: this.getAuthHeaders(),
         })
       );
-      console.log(`Tarefa ${id} atualizada com sucesso.`, response);  // Log para verificar o sucesso da resposta
+      console.log(`Tarefa ${id} atualizada com sucesso.`, response); // Log para verificar o sucesso da resposta
       return response as Response;
     } catch (error: any) {
       console.error(
