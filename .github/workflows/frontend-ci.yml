@@ -37,8 +37,15 @@ jobs:
         run: npm run build -- --configuration=production
         working-directory: frontend
 
-      - name: Verificar valor do RENDER_DEPLOY_HOOK
-        run: echo "RENDER_DEPLOY_HOOK=${{ secrets.RENDER_DEPLOY_HOOK }}"
+      - name: Verificar se o segredo RENDER_DEPLOY_HOOK está definido
+        run: |
+          if [ -z "${{ secrets.RENDER_DEPLOY_HOOK }}" ]; then
+            echo "O segredo RENDER_DEPLOY_HOOK está vazio!"
+            exit 1
+          else
+            echo "O segredo RENDER_DEPLOY_HOOK foi configurado corretamente."
+          fi
+
 
       - name: Deploy para Render
         run: curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK }}"
