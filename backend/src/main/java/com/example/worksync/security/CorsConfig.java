@@ -13,6 +13,7 @@ public class CorsConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
+        configuration.setAllowedOrigins(List.of("http://localhost:4200", "https://worksync-frontend.onrender.com"));
         configuration.setAllowedOriginPatterns(List.of("*")); // Permite qualquer origem (pode restringir se necessário)
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS")); // Adicionado PATCH
         configuration.setAllowCredentials(true);
