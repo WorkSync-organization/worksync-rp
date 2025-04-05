@@ -46,12 +46,22 @@
         <div *ngIf="registerForm.hasError('passwordMismatch') && registerForm.get('confirmPassword')?.touched" class="error">
           As senhas não coincidem.
         </div>
+
+        <div class="input-group">
+          <select name="tipoUsuario" class="user-select" formControlName="role">
+            <option value="USER">Usuário</option>
+            <option value="ADMIN">Administrador</option>
+          </select>
+          <span class="material-icons">supervisor_account</span>
+        </div>
+
         <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
         <button type="submit" class="register-btn" [disabled]="registerForm.invalid">Cadastrar</button>
       </form>
       <p>Já tem uma conta? <a href="/login">Faça login</a></p>
     </div>
   </div>
+
   <div class="wave-container">
     <svg viewBox="0 0 1440 320" class="wave">
       <path fill="#a4c7f2" fill-opacity="0.5" d="M0,96L48,101.3C96,107,192,117,288,138.7C384,160,480,192,576,170.7C672,149,768,75,864,53.3C960,32,1056,64,1152,85.3C1248,107,1344,117,1392,122.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
