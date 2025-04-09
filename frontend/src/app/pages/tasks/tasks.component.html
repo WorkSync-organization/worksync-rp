@@ -24,7 +24,7 @@
             </select>
 
             <!-- Botão para criar nova tarefa -->
-            <button (click)="goToCreateTask()" class="btn-criar-tarefa">+ Tarefa</button>
+            <button *ngIf="userRole !== 'ADMIN'" (click)="goToCreateTask()" class="btn-criar-tarefa">+ Tarefa</button>
         </div>
 
         <!-- Tabela de tarefas -->

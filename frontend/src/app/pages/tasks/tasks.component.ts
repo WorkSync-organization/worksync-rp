@@ -25,6 +25,8 @@ export class TasksComponent implements OnInit {
   statusFilter: string = '';
   username: string = '';
   currentUserId!: number;
+  userRole: string | null = null;
+
   private router = inject(Router);
   private authService = inject(AuthService);
   private userService = inject(UserService);
@@ -35,6 +37,7 @@ export class TasksComponent implements OnInit {
     const userLog = this.authService.getUser();
     if (userLog && userLog.sub) {
       this.username = userLog.sub;
+      this.userRole = userLog.role;
     }
 
     this.userService.getUserByEmail(this.username).subscribe({

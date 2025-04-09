@@ -8,7 +8,7 @@
   <div class="container">
     <div class="title">
       <h1>{{ project?.title }}</h1>
-      <span class="material-icons edit" (click)="editProject()"> edit </span>
+      <span *ngIf="userRole === 'ADMIN'" class="material-icons edit" (click)="editProject()"> edit </span>
     </div>
     <section class="info">
       <ul class="info-list">

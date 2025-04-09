@@ -10,6 +10,7 @@ import { TaskService } from '../../../services/tasks.service';
 import { FormsModule } from '@angular/forms';
 import { ProjectDTO } from '../../../services/types/project';
 import { translateStatus } from '../../../utils/translateStatus';
+import { AuthService } from '../../../services/auth/auth.service';
 
 @Component({
   selector: 'app-view-project',
@@ -24,19 +25,25 @@ export class ViewProjectComponent implements OnInit {
   project: ProjectDTO | null = null;
   tasks: any[] = [];
   participantNames: { [key: number]: string } = {};
+  userRole: string | null = null; 
 
   constructor(
     private router: ActivatedRoute,
     private projectsService: ProjectsService,
     private userService: UserService,
     private taskService: TaskService,
-    private navigation: Router
+    private navigation: Router,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
     this.projectId = this.router.snapshot.paramMap.get('projectId')!;
     this.getProject();
     this.getTasks();
+
+    const user = this.authService.getUser();
+    this.userRole = user?.role || null;
+
   }
 
   translateStatus(status: string): string {

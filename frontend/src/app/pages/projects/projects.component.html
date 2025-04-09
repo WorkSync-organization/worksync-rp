@@ -18,11 +18,11 @@
                 <span [routerLink]="['/projects', projeto.id]" routerLinkActive="active">{{ projeto.title }}</span>
                 <div class="acoes">
                     <!-- Botão de Editar -->
-                    <button class="editar" (click)="editProject(projeto.id)">
+                    <button *ngIf="userRole !== 'USER'" class="editar" (click)="editProject(projeto.id)">
                         <span class="material-icons edit">edit</span>
                     </button>
                     <!-- Botão de Excluir -->
-                    <button class="excluir" (click)="deleteProject(projeto.id)">
+                    <button *ngIf="userRole !== 'USER'" class="excluir" (click)="deleteProject(projeto.id)">
                         <span class="material-icons delete">delete</span>
                     </button>
                 </div>
