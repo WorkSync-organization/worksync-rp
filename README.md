@@ -1,4 +1,4 @@
-![](https://custom-icon-badges.demolab.com/badge/STATUS-EM%20DESENVOLVIMENTO-8957E5.svg?logo=tools&logoColor=white)
+![](https://custom-icon-badges.demolab.com/badge/STATUS-FINALIZADO-8957E5.svg?logo=tools&logoColor=white)
 # WorkSync - Gestão de tarefas colaborativas
 > *Desenvolvido para a disciplina de **Engenharia de Software** - UFAPE 2024.1*\
 > **Docente**: *Dr. Rodrigo Andrade (**[@rcaa](https://github.com/rcaa)**)*
